@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARGE IT SUPPORT — IT Support, Cybersecurity & AI Security | Ilesa, Osun State</title>
+<meta name="description" content="MARGE IT SUPPORT provides professional IT support, cybersecurity and AI security for businesses in Ilesa, Osun State, Nigeria.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<style>
+/* ============ TOKENS & BASE ============ */
+:root{
+  --ink:#17111F;
+  --ink-2:#211731;
+  --ink-3:#2B1E3F;
+  --pink:#F0417F;
+  --pink-deep:#C4235F;
+  --pink-soft:#FBE3EE;
+  --blush:#FAF4F7;
+  --paper:#FFFFFF;
+  --line:rgba(23,17,31,.10);
+  --line-w:rgba(255,255,255,.12);
+  --body:#5C5266;
+  --body-dark:#C9BCD8;
+  --shadow:0 24px 60px -24px rgba(23,17,31,.22);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:'Manrope',sans-serif;color:var(--body);background:var(--paper);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-height:1.08;letter-spacing:-.02em;font-weight:700}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--pink);color:#fff}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--blush)}
+::-webkit-scrollbar-thumb{background:#C9A0B6;border-radius:8px;border:3px solid var(--blush)}
+::-webkit-scrollbar-thumb:hover{background:var(--pink)}
+
+.container{max-width:1180px;margin:0 auto;padding:0 26px}
+section{padding:104px 0;position:relative}
+.serif{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0}
+
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--pink)}
+.eyebrow.center::after{content:"";width:26px;height:2px;background:var(--pink)}
+.h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+.lead{font-size:17.5px;max-width:620px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:800;font-size:15px;font-family:'Manrope',sans-serif;cursor:pointer;border:none;transition:all .25s cubic-bezier(.16,1,.3,1);white-space:nowrap}
+.btn i,.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn:hover i,.btn:hover svg{transform:translateX(4px)}
+.btn--primary{background:var(--pink);color:#fff}
+.btn--primary:hover{background:var(--pink-deep);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(240,65,127,.55)}
+.btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+.btn--ghost:hover{border-color:var(--pink);color:#fff;background:rgba(240,65,127,.12);transform:translateY(-2px)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:var(--pink);transform:translateY(-2px)}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* image duotone treatment */
+.duo{position:relative;overflow:hidden;background:#3A2340;border-radius:var(--r)}
+.duo img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.92;filter:contrast(1.05);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.duo::after{content:"";position:absolute;inset:0;background:var(--pink-deep);mix-blend-mode:soft-light;opacity:.5;pointer-events:none}
+.duo:hover img{transform:scale(1.05)}
+
+/* ============ PROGRESS BAR ============ */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--pink);z-index:400}
+
+/* ============ TOPBAR ============ */
+.topbar{background:var(--ink);color:#B4A6C6;font-size:13px;font-weight:600;position:relative;z-index:210}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;height:40px;gap:20px}
+.topbar span{display:inline-flex;align-items:center;gap:8px}
+.topbar i{width:14px;height:14px;color:var(--pink)}
+.topbar a:hover{color:#fff}
+.topbar-right{display:flex;gap:22px}
+@media(max-width:720px){.topbar-right span:first-child{display:none}}
+@media(max-width:520px){.topbar-right{display:none}}
+
+/* ============ HEADER ============ */
+header.site{position:sticky;top:0;z-index:200;background:rgba(23,17,31,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+header.site.scrolled{border-bottom-color:var(--line-w);background:rgba(23,17,31,.94)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:44px;height:44px;flex-shrink:0}
+.brand-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:#fff;line-height:1;letter-spacing:.01em}
+.brand-name small{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.34em;color:var(--pink);margin-top:4px}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{color:#D8CDE4;font-weight:600;font-size:14.5px;position:relative;padding:6px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--pink);transition:width .3s cubic-bezier(.16,1,.3,1)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-cta .btn{padding:12px 22px;font-size:14px}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px}
+.hamburger i{width:26px;height:26px}
+.mobile-menu{display:none;background:var(--ink);border-top:1px solid var(--line-w);overflow:hidden;max-height:0;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+.mobile-menu.open{max-height:480px}
+.mobile-menu nav{display:flex;flex-direction:column;padding:14px 26px 26px}
+.mobile-menu a{color:#D8CDE4;font-weight:700;font-size:16px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mobile-menu a:hover{color:var(--pink)}
+.mobile-menu .btn{margin-top:20px;justify-content:center}
+@media(max-width:960px){
+  .nav-links,.nav-cta .btn{display:none}
+  .hamburger{display:block}
+  .mobile-menu{display:block}
+}
+
+/* ============ HERO ============ */
+.hero{background:var(--ink);color:#fff;padding:90px 0 110px;overflow:hidden}
+#mesh{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);border:1px solid var(--line-w);border-radius:999px;padding:9px 18px;font-size:13px;font-weight:700;color:#D8CDE4;margin-bottom:26px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(240,65,127,.5)}70%{box-shadow:0 0 0 9px rgba(240,65,127,0)}100%{box-shadow:0 0 0 0 rgba(240,65,127,0)}}
+.hero h1{color:#fff;font-size:clamp(2.7rem,5.1vw,4.4rem);font-weight:800;margin-bottom:24px}
+.hero h1 .accent{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--pink);font-size:1.08em;letter-spacing:0}
+.hero p{color:var(--body-dark);font-size:18px;max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.hero-trust{display:flex;gap:34px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:700;color:#E9E1F2}
+.trust-item i{width:18px;height:18px;color:var(--pink)}
+.trust-item small{display:block;font-weight:500;color:#9C8DB2;font-size:12px}
+
+/* hero console */
+.hero-visual{position:relative;min-height:520px}
+.hero-photo{position:absolute;top:0;right:0;width:78%;height:340px;transform:rotate(2.5deg)}
+.soc-card{position:absolute;left:0;bottom:30px;width:min(400px,92%);background:rgba(33,23,49,.9);backdrop-filter:blur(10px);border:1px solid var(--line-w);border-radius:20px;padding:22px 24px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.soc-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line-w);margin-bottom:6px}
+.soc-title{display:flex;align-items:center;gap:9px;font-weight:800;font-size:13.5px;color:#fff;letter-spacing:.04em}
+.soc-title i{width:16px;height:16px;color:var(--pink)}
+.soc-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:700;color:#7ED9A8}
+.soc-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#7ED9A8;animation:pulse 2s infinite}
+.soc-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13.5px;color:#D8CDE4;font-weight:600}
+.soc-row:last-of-type{border-bottom:none}
+.soc-row .st{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800}
+.st.ok{color:#7ED9A8}.st.pink{color:var(--pink)}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.soc-meter{margin-top:14px}
+.soc-meter .lbl{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;color:#9C8DB2;margin-bottom:8px}
+.soc-bar{height:6px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}
+.soc-bar span{display:block;height:100%;width:0;background:var(--pink);border-radius:6px;transition:width 1.6s cubic-bezier(.16,1,.3,1) .5s}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;font-size:12.5px;font-weight:800;box-shadow:0 20px 44px -18px rgba(0,0,0,.5);animation:float 6s ease-in-out infinite}
+.chip i{width:17px;height:17px;color:var(--pink)}
+.chip small{display:block;font-weight:600;color:var(--body);font-size:11px}
+.chip--1{top:24px;left:-8px;animation-delay:1.2s}
+.chip--2{bottom:-6px;right:6px;animation-delay:2.4s}
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:70px}
+  .hero p{max-width:640px}
+  .hero-visual{min-height:480px;max-width:560px}
+}
+@media(max-width:560px){
+  .hero{padding:64px 0 90px}
+  .hero-photo{height:260px}
+  .soc-card{padding:18px}
+  .chip--1{left:0}
+}
+
+/* ============ MARQUEE ============ */
+.marquee-wrap{background:var(--blush);padding:44px 0 10px;overflow:hidden}
+.marquee{background:var(--pink);transform:rotate(-1.4deg);width:106%;margin-left:-3%;padding:16px 0;overflow:hidden}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:scrollX 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+.marquee span{display:flex;align-items:center;gap:44px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;letter-spacing:.14em;color:#fff;text-transform:uppercase;white-space:nowrap}
+.marquee i{width:16px;height:16px;flex-shrink:0}
+
+/* ============ SECTION HEADS ============ */
+.sec-head{max-width:680px;margin-bottom:56px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head p{margin-top:16px}
+
+/* ============ ABOUT ============ */
+.about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+.about-visual{position:relative;min-height:520px}
+.about-photo{position:absolute;inset:0 18% 22% 0;height:78%}
+.about-photo2{position:absolute;right:0;bottom:0;width:52%;height:44%;border:6px solid var(--paper)}
+.exp-badge{position:absolute;left:-14px;bottom:64px;background:var(--ink);color:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);animation:float 6s ease-in-out infinite}
+.exp-badge b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:32px;color:var(--pink);line-height:1}
+.exp-badge span{font-size:12px;font-weight:700;letter-spacing:.06em}
+.about-copy h2{margin-bottom:20px}
+.about-copy>p{margin-bottom:22px}
+.about-list{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0 34px}
+.about-list li{display:flex;align-items:center;gap:11px;font-weight:700;color:var(--ink);font-size:14.5px}
+.about-list i{width:19px;height:19px;color:var(--pink);flex-shrink:0}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);padding-top:30px}
+.counter b{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.7rem,2.6vw,2.3rem);color:var(--ink);display:block;line-height:1}
+.counter b em{font-style:normal;color:var(--pink)}
+.counter span{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--body)}
+@media(max-width:960px){
+  .about-grid{grid-template-columns:1fr;gap:56px}
+  .about-visual{min-height:440px;max-width:520px}
+  .counters{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){.about-list{grid-template-columns:1fr}}
+
+/* ============ SERVICES BENTO ============ */
+.services{background:var(--blush)}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.bcard{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s,box-shadow .35s;display:flex;flex-direction:column}
+.bcard:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:var(--shadow)}
+.bcard .num{position:absolute;top:24px;right:26px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;color:rgba(23,17,31,.16);transition:color .3s}
+.bcard:hover .num{color:var(--pink)}
+.icon-tile{width:52px;height:52px;border-radius:14px;background:var(--pink-soft);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:background .3s}
+.icon-tile i{width:24px;height:24px;color:var(--pink);transition:color .3s}
+.bcard:hover .icon-tile{background:var(--pink)}
+.bcard:hover .icon-tile i{color:#fff}
+.bcard h3{font-size:21px;margin-bottom:10px}
+.bcard p{font-size:14.5px;flex-grow:0}
+.bcard .more{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:13.5px;font-weight:800;color:var(--ink);transition:color .25s}
+.bcard .more i{width:15px;height:15px;transition:transform .25s}
+.bcard .more:hover{color:var(--pink)}
+.bcard .more:hover i{transform:translate(3px,-3px)}
+.b1{grid-column:span 7;background:var(--ink);border-color:transparent}
+.b1 h3,.b1 .more{color:#fff}
+.b1 p{color:var(--body-dark)}
+.b1 .icon-tile{background:rgba(240,65,127,.16)}
+.b1 .num{color:rgba(255,255,255,.2)}
+.b1:hover{border-color:var(--pink)}
+.b1-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.b1-chips span{font-size:11.5px;font-weight:800;letter-spacing:.03em;color:#F5B9D2;background:rgba(240,65,127,.13);border:1px solid rgba(240,65,127,.3);padding:6px 13px;border-radius:999px}
+.b1-img{margin:24px -32px -32px;height:170px}
+.b1-img .duo{border-radius:0;height:100%}
+.b2{grid-column:span 5}
+.b3{grid-column:span 5}
+.b4{grid-column:span 4;background:var(--pink-soft);border-color:transparent}
+.b4 .icon-tile{background:#fff}
+.b5{grid-column:span 3}
+.b6{grid-column:span 8;flex-direction:row;align-items:center;gap:36px}
+.b6 .icon-tile{margin-bottom:0;flex-shrink:0}
+.b6-body{flex:1}
+.b6-checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:14px}
+.b6-checks li{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.b6-checks i{width:16px;height:16px;color:var(--pink);flex-shrink:0}
+.b7{grid-column:span 4}
+.b8{grid-column:span 12;flex-direction:row;align-items:center;gap:32px;background:var(--ink);border-color:transparent}
+.b8:hover{border-color:var(--pink)}
+.b8 .icon-tile{margin-bottom:0;flex-shrink:0}
+.b8 h3{color:#fff}
+.b8 p{color:var(--body-dark)}
+.b8 .num{color:rgba(255,255,255,.2)}
+.b8-body{flex:1}
+.b8 .btn{flex-shrink:0;padding:13px 24px;font-size:14px}
+.b3-metric{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:12.5px;font-weight:800;color:var(--pink-deep)}
+.b3-metric::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink);animation:pulse 2s infinite}
+@media(max-width:1020px){
+  .b1,.b8{grid-column:span 12}
+  .b2,.b3,.b6{grid-column:span 6}
+  .b4,.b5,.b7{grid-column:span 6}
+  .b8{flex-direction:column;align-items:flex-start;gap:22px}
+}
+@media(max-width:640px){
+  .bento>*{grid-column:span 12 !important}
+  .b6{flex-direction:column;align-items:flex-start;gap:22px}
+  .b6-checks{grid-template-columns:1fr}
+  .bcard{padding:26px}
+}
+
+/* ============ AI SECURITY (dark) ============ */
+.ai-sec{background:var(--ink);color:var(--body-dark)}
+.ai-sec .dots-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 85%,transparent)}
+.ai-sec>.container{position:relative}
+.ai-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start;margin-bottom:90px}
+.ai-left{position:sticky;top:120px}
+.ai-left h2{color:#fff;margin-bottom:20px}
+.ai-left h2 .accent{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--pink)}
+.ai-left p{margin-bottom:30px}
+.ai-stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.ai-stats span{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-w);border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:800;color:#E9E1F2}
+.ai-stats i{width:15px;height:15px;color:var(--pink)}
+.ai-feats{border-top:1px solid var(--line-w)}
+.ai-feat{display:flex;gap:22px;padding:26px 18px;border-bottom:1px solid var(--line-w);position:relative;transition:background .3s;border-radius:0 14px 14px 0}
+.ai-feat::before{content:"";position:absolute;left:0;top:20%;height:60%;width:3px;background:var(--pink);border-radius:3px;transform:scaleY(0);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.ai-feat:hover{background:rgba(255,255,255,.035)}
+.ai-feat:hover::before{transform:scaleY(1)}
+.ai-feat .fi{width:48px;height:48px;flex-shrink:0;border-radius:13px;background:rgba(240,65,127,.14);border:1px solid rgba(240,65,127,.3);display:flex;align-items:center;justify-content:center}
+.ai-feat .fi i{width:22px;height:22px;color:var(--pink)}
+.ai-feat h4{color:#fff;font-size:17.5px;margin-bottom:6px}
+.ai-feat p{font-size:14px;color:#A394B8}
+
+/* pipeline */
+.flow-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:64px}
+.flow-head h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2rem)}
+.flow-status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-w);border-radius:999px;padding:10px 20px;font-size:13px;font-weight:700;color:#E9E1F2}
+.flow-status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pulse 1.6s infinite}
+.flow{position:relative;padding:10px 0 6px}
+.flow-steps{display:flex;justify-content:space-between;position:relative;z-index:2}
+.flow-step{display:flex;flex-direction:column;align-items:center;text-align:center;width:120px}
+.flow-node{width:70px;height:70px;border-radius:50%;background:var(--ink-2);border:1.5px solid var(--line-w);display:flex;align-items:center;justify-content:center;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative}
+.flow-node i{width:26px;height:26px;color:#B4A6C6;transition:color .3s}
+.flow-step.active .flow-node{background:var(--pink);border-color:var(--pink);transform:scale(1.1);box-shadow:0 0 0 7px rgba(240,65,127,.15)}
+.flow-step.active .flow-node i{color:#fff}
+.flow-step h4{color:#fff;font-size:15px;margin:16px 0 5px}
+.flow-step p{font-size:11.5px;color:#8E7FA4;line-height:1.45;font-weight:600}
+.flow-track{position:absolute;top:45px;left:calc(60px);right:calc(60px);height:2px;background:rgba(255,255,255,.12);z-index:1}
+.flow-progress{position:absolute;left:0;top:0;height:100%;width:0;background:var(--pink);transition:width .7s cubic-bezier(.16,1,.3,1)}
+.flow-packet{position:absolute;top:50%;left:0;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--pink);transform:translate(-50%,-50%);z-index:3;transition:left .7s cubic-bezier(.16,1,.3,1),opacity .3s;opacity:0}
+.flow-packet.on{opacity:1}
+@media(max-width:860px){
+  .ai-grid{grid-template-columns:1fr;gap:44px}
+  .ai-left{position:static}
+  .flow-steps{flex-direction:column;gap:34px;align-items:flex-start}
+  .flow-step{flex-direction:row;text-align:left;width:auto;gap:22px}
+  .flow-track{top:35px;bottom:35px;left:34px;right:auto;width:2px;height:auto}
+  .flow-progress{width:100% !important;height:0;top:0;left:0;transition:height .7s cubic-bezier(.16,1,.3,1)}
+  .flow-packet{left:35px !important;transform:translate(-50%,-50%);transition:top .7s cubic-bezier(.16,1,.3,1)}
+  .flow-step h4{margin:0 0 4px}
+}
+
+/* ============ WHY ============ */
+.why{background:var(--paper)}
+.why-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.why-left{position:sticky;top:120px}
+.why-left h2{margin-bottom:20px}
+.why-left .duo{height:230px;margin-top:34px}
+.why-list{border-top:1px solid var(--line)}
+.why-item{display:flex;gap:28px;padding:32px 6px;border-bottom:1px solid var(--line);transition:padding-left .3s cubic-bezier(.16,1,.3,1)}
+.why-item:hover{padding-left:20px}
+.why-item .wn{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;color:var(--pink);padding-top:5px;min-width:34px}
+.why-item .wi{width:50px;height:50px;flex-shrink:0;border-radius:14px;background:var(--pink-soft);display:flex;align-items:center;justify-content:center}
+.why-item .wi i{width:23px;height:23px;color:var(--pink)}
+.why-item h4{font-size:19px;margin-bottom:8px}
+.why-item p{font-size:14.5px}
+@media(max-width:960px){
+  .why-grid{grid-template-columns:1fr;gap:44px}
+  .why-left{position:static}
+}
+
+/* ============ CTA STRIP ============ */
+.cta-strip{background:var(--pink);padding:0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:44px 0}
+.cta-inner h3{color:#fff;font-size:clamp(1.4rem,2.4vw,1.9rem)}
+.cta-inner p{color:rgba(255,255,255,.85);font-weight:600;margin-top:6px}
+.cta-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn--white{background:#fff;color:var(--pink-deep)}
+.btn--white:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn--outline-w{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn--outline-w:hover{background:rgba(255,255,255,.14);border-color:#fff;transform:translateY(-2px)}
+
+/* ============ HOW IT WORKS ============ */
+.how{background:var(--blush)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.steps::before{content:"";position:absolute;top:34px;left:8%;right:8%;border-top:2px dashed #E3B9CC;z-index:0}
+.step{position:relative;z-index:1;text-align:center;padding:0 8px}
+.step-n{width:68px;height:68px;margin:0 auto 22px;border-radius:50%;background:var(--paper);border:2px solid var(--pink);display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:var(--pink);transition:all .35s cubic-bezier(.16,1,.3,1)}
+.step:hover .step-n{background:var(--pink);color:#fff;transform:scale(1.12);box-shadow:0 0 0 8px rgba(240,65,127,.14)}
+.step h4{font-size:17.5px;margin-bottom:9px}
+.step p{font-size:13.5px}
+@media(max-width:860px){
+  .steps{grid-template-columns:1fr;gap:36px;max-width:440px;margin:0 auto}
+  .steps::before{left:33px;right:auto;top:8%;bottom:8%;border-top:none;border-left:2px dashed #E3B9CC}
+  .step{display:flex;text-align:left;gap:24px;align-items:flex-start;padding:0}
+  .step-n{margin:0;flex-shrink:0}
+}
+
+/* ============ PORTFOLIO ============ */
+.portfolio{background:var(--paper)}
+.pf-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.pf{grid-column:span 6;position:relative;border-radius:22px;overflow:hidden;background:var(--ink);cursor:pointer}
+.pf--lg{grid-column:span 7}
+.pf--sm{grid-column:span 5}
+.pf--wide{grid-column:span 12;display:grid;grid-template-columns:5fr 7fr;align-items:stretch}
+.pf-media{height:300px;overflow:hidden}
+.pf-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06) brightness(.9);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.pf:hover .pf-media img{filter:grayscale(0) contrast(1) brightness(1);transform:scale(1.06)}
+.pf--wide .pf-media{height:auto;min-height:280px}
+.pf-tag{position:absolute;top:20px;left:20px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 15px;border-radius:999px}
+.pf-body{position:absolute;left:0;right:0;bottom:0;padding:26px;background:linear-gradient(to top,rgba(15,10,22,.92),rgba(15,10,22,0));z-index:2}
+.pf-body h3{color:#fff;font-size:20px;margin-bottom:6px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.pf-body h3 i{width:19px;height:19px;color:var(--pink);flex-shrink:0;transition:transform .3s}
+.pf:hover .pf-body h3 i{transform:translate(4px,-4px)}
+.pf-body p{color:#CFC3DC;font-size:13.5px}
+.pf--wide .pf-body{position:static;background:none;padding:38px 40px;display:flex;flex-direction:column;justify-content:center}
+.pf--wide .pf-body h3{font-size:24px}
+.pf--wide .pf-body p{max-width:480px}
+@media(max-width:900px){
+  .pf,.pf--lg,.pf--sm{grid-column:span 12}
+  .pf--wide{grid-template-columns:1fr}
+  .pf-media{height:260px}
+}
+@media(max-width:640px){.pf-media{height:220px}.pf-body{padding:20px}}
+
+/* ============ TESTIMONIALS ============ */
+.testi{background:var(--ink);color:var(--body-dark)}
+.testi .sec-head h2{color:#fff}
+.t-wrap{max-width:820px;margin:0 auto;position:relative}
+.t-viewport{overflow:hidden;border-radius:24px}
+.t-track{display:flex;transition:transform .65s cubic-bezier(.16,1,.3,1)}
+.t-slide{min-width:100%;background:var(--ink-2);border:1px solid var(--line-w);border-radius:24px;padding:52px 56px;text-align:center}
+.t-quote-ic{width:52px;height:52px;margin:0 auto 24px;border-radius:50%;background:rgba(240,65,127,.14);display:flex;align-items:center;justify-content:center}
+.t-quote-ic i{width:22px;height:22px;color:var(--pink)}
+.t-stars{display:flex;justify-content:center;gap:5px;margin-bottom:22px}
+.t-stars i{width:17px;height:17px;color:var(--pink);fill:var(--pink)}
+.t-slide blockquote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.5;color:#F1EAF7;margin-bottom:30px}
+.t-person{display:flex;align-items:center;justify-content:center;gap:15px}
+.t-person img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--pink)}
+.t-person b{display:block;color:#fff;font-size:15px}
+.t-person span{font-size:13px;color:#9C8DB2;font-weight:600}
+.t-ctrl{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:34px}
+.t-btn{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line-w);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.t-btn:hover{background:var(--pink);border-color:var(--pink)}
+.t-btn i{width:19px;height:19px}
+.t-dots{display:flex;gap:9px}
+.t-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:all .3s}
+.t-dot.on{background:var(--pink);width:26px;border-radius:9px}
+@media(max-width:640px){.t-slide{padding:36px 26px}}
+
+/* ============ FAQ ============ */
+.faq{background:var(--paper)}
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+.faq-left{position:sticky;top:120px}
+.faq-left h2{margin-bottom:20px}
+.faq-card{margin-top:34px;background:var(--pink-soft);border-radius:20px;padding:30px}
+.faq-card i{width:30px;height:30px;color:var(--pink-deep);margin-bottom:14px}
+.faq-card h4{font-size:18px;margin-bottom:8px}
+.faq-card p{font-size:14px;margin-bottom:18px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:22px;text-align:left;padding:26px 4px;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17.5px;color:var(--ink);transition:color .25s}
+.faq-q:hover{color:var(--pink)}
+.faq-q .fx{width:34px;height:34px;flex-shrink:0;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .35s}
+.faq-q .fx i{width:16px;height:16px;transition:transform .35s}
+.faq-item.open .fx{background:var(--pink);border-color:var(--pink)}
+.faq-item.open .fx i{transform:rotate(135deg);color:#fff}
+.faq-item.open .faq-q{color:var(--pink)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.16,1,.3,1)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{padding:0 4px 26px;font-size:15px;max-width:600px}
+@media(max-width:960px){
+  .faq-grid{grid-template-columns:1fr;gap:44px}
+  .faq-left{position:static}
+}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--blush)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start;margin-bottom:70px}
+.contact-info h2{margin-bottom:20px}
+.contact-info>p{margin-bottom:34px}
+.c-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.c-item .ci{width:48px;height:48px;flex-shrink:0;border-radius:14px;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.c-item:hover .ci{background:var(--pink);border-color:var(--pink)}
+.c-item:hover .ci i{color:#fff}
+.c-item .ci i{width:21px;height:21px;color:var(--pink);transition:color .3s}
+.c-item b{display:block;color:var(--ink);font-size:15.5px;margin-bottom:3px}
+.c-item a,.c-item span{font-size:14.5px;font-weight:600;color:var(--body)}
+.c-item a:hover{color:var(--pink)}
+.form-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:44px;box-shadow:var(--shadow)}
+.form-card h3{font-size:22px;margin-bottom:6px}
+.form-card>p{font-size:14.5px;margin-bottom:28px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f-group{margin-bottom:18px}
+.f-group label{display:block;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:14px 18px;border:1.5px solid var(--line);border-radius:13px;font-family:'Manrope',sans-serif;font-size:15px;color:var(--ink);background:var(--blush);transition:border-color .25s,background .25s;outline:none}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--pink);background:#fff}
+.f-group textarea{resize:vertical;min-height:120px}
+.f-group.err input,.f-group.err textarea,.f-group.err select{border-color:#D93B3B}
+.f-err{display:none;font-size:12px;color:#D93B3B;font-weight:700;margin-top:5px}
+.f-group.err .f-err{display:block}
+.form-card .btn{width:100%;justify-content:center;margin-top:6px}
+.map-wrap{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.map-wrap iframe{width:100%;height:440px;border:0;display:block;filter:grayscale(.35) contrast(1.02)}
+.map-chip{position:absolute;top:22px;left:22px;background:var(--ink);color:#fff;border-radius:16px;padding:16px 22px;max-width:300px;box-shadow:var(--shadow)}
+.map-chip b{display:flex;align-items:center;gap:9px;font-size:14.5px;margin-bottom:5px}
+.map-chip b i{width:16px;height:16px;color:var(--pink)}
+.map-chip span{font-size:12.5px;color:var(--body-dark);font-weight:600;line-height:1.5}
+@media(max-width:960px){
+  .contact-grid{grid-template-columns:1fr;gap:44px}
+  .form-card{padding:32px}
+}
+@media(max-width:560px){.f-row{grid-template-columns:1fr}.map-chip{position:static;border-radius:0;max-width:none}}
+
+/* ============ FOOTER ============ */
+footer{background:#120D1A;color:#A394B8}
+.foot-main{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:52px;padding:80px 0 56px}
+.foot-brand .brand-name{color:#fff}
+.foot-brand p{font-size:14.5px;margin:20px 0 24px;max-width:300px}
+.socials{display:flex;gap:12px}
+.socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line-w);display:flex;align-items:center;justify-content:center;color:#D8CDE4;transition:all .3s}
+.socials a:hover{background:var(--pink);border-color:var(--pink);color:#fff;transform:translateY(-3px)}
+.socials i{width:18px;height:18px}
+.foot-col h4{color:#fff;font-size:15px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.foot-col li{margin-bottom:12px}
+.foot-col a{font-size:14.5px;font-weight:600;transition:color .25s,padding-left .25s}
+.foot-col a:hover{color:var(--pink);padding-left:5px}
+.foot-contact li{display:flex;gap:12px;font-size:14px;margin-bottom:16px;line-height:1.55}
+.foot-contact i{width:17px;height:17px;color:var(--pink);flex-shrink:0;margin-top:3px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;font-size:13.5px}
+.foot-bottom a:hover{color:var(--pink)}
+.foot-bottom .fb-links{display:flex;gap:24px}
+#toTop{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:#D8CDE4;cursor:pointer;background:none;border:none;font-family:'Manrope',sans-serif;font-size:13.5px;transition:color .25s}
+#toTop:hover{color:var(--pink)}
+#toTop i{width:16px;height:16px}
+@media(max-width:960px){.foot-main{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-main{grid-template-columns:1fr;gap:40px}}
+
+/* ============ WHATSAPP FLOAT ============ */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;align-items:center;gap:12px}
+.wa-btn{width:58px;height:58px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 16px 36px -10px rgba(23,17,31,.5);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.wa-btn:hover{transform:scale(1.1)}
+.wa-btn::before{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--pink);animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.35);opacity:0}}
+.wa-btn svg{width:28px;height:28px;fill:#fff}
+.wa-btn .wa-dot{position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;background:#4AD66D;border:2.5px solid var(--ink)}
+.wa-label{background:#fff;color:var(--ink);font-size:13px;font-weight:800;padding:10px 16px;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateX(8px);transition:all .3s;pointer-events:none;white-space:nowrap}
+.wa-float:hover .wa-label{opacity:1;transform:none}
+@media(max-width:640px){.wa-label{display:none}}
+
+/* ============ TOAST ============ */
+.toasts{position:fixed;top:100px;right:24px;z-index:500;display:flex;flex-direction:column;gap:12px}
+.toast{display:flex;align-items:center;gap:13px;background:var(--ink);color:#fff;border-radius:14px;padding:15px 20px;font-size:14px;font-weight:700;box-shadow:var(--shadow);border-left:4px solid var(--pink);animation:toastIn .45s cubic-bezier(.16,1,.3,1);max-width:340px}
+.toast i{width:19px;height:19px;color:var(--pink);flex-shrink:0}
+.toast.out{animation:toastOut .4s forwards}
+@keyframes toastIn{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateX(60px)}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <span><i data-lucide="map-pin"></i>GEO 26, Aralopon Teacher Quarters, Ilesa, Osun State</span>
+    <div class="topbar-right">
+      <span><i data-lucide="clock"></i>Mon – Sat · 8:00am – 6:00pm</span>
+      <a href="tel:+2348106356492"><span><i data-lucide="phone"></i>0810 635 6492</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site" id="header">
+  <div class="container nav-inner">
+    <a href="#home" class="brand">
+      <svg class="brand-mark" viewBox="0 0 44 44" fill="none">
+        <rect width="44" height="44" rx="12" fill="#F0417F"/>
+        <path d="M22 9L33 13.5V22c0 7-4.4 11.4-11 13.8C15.4 33.4 11 29 11 22v-8.5L22 9z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="22" cy="21.5" r="3.4" fill="#fff"/>
+        <path d="M22 24.9V29" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">MARGE<small>IT SUPPORT</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#ai-security">AI Security</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn--primary">Get Support <i data-lucide="arrow-right"></i></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#ai-security">AI Security</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn--primary">Get Support <i data-lucide="arrow-right"></i></a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas id="mesh"></canvas>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="hero-badge"><span class="dot"></span>Ilesa · Osun State — IT, Cybersecurity &amp; AI Security</span>
+      <h1>Smart IT Support.<br>Powerful <span class="accent">AI Security</span>.</h1>
+      <p>Reliable IT support and intelligent security solutions that keep your business connected and protected — from everyday helpdesk to next-generation AI threat defence.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn--primary">Get a Free Consultation <i data-lucide="arrow-right"></i></a>
+        <a href="#services" class="btn btn--ghost">Explore Services <i data-lucide="arrow-down-right"></i></a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><i data-lucide="radar"></i><div>24/7 Monitoring<small>Always watching</small></div></div>
+        <div class="trust-item"><i data-lucide="shield-check"></i><div>Certified Engineers<small>Trained specialists</small></div></div>
+        <div class="trust-item"><i data-lucide="timer"></i><div>Fast Response<small>Under 1 hour</small></div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-photo duo"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Secure data center server room"></div>
+      <div class="chip chip--1"><i data-lucide="lock"></i><div>2FA Verified<small>Identity confirmed</small></div></div>
+      <div class="chip chip--2"><i data-lucide="shield-alert"></i><div>Threat blocked<small>Prompt injection · 0.4s</small></div></div>
+      <div class="soc-card">
+        <div class="soc-head">
+          <span class="soc-title"><i data-lucide="activity"></i>MARGE SOC — LIVE</span>
+          <span class="soc-status">All systems normal</span>
+        </div>
+        <div class="soc-row"><span>Firewall</span><span class="st ok">Active</span></div>
+        <div class="soc-row"><span>AI Model Shield</span><span class="st pink">Protected</span></div>
+        <div class="soc-row"><span>Endpoints Online</span><span class="st ok">24 / 24</span></div>
+        <div class="soc-row"><span>Last Threat Feed</span><span style="font-weight:700;color:#9C8DB2;font-size:12px">Blocked 2m ago</span></div>
+        <div class="soc-meter">
+          <div class="lbl"><span>Network Uptime</span><span>99.98%</span></div>
+          <div class="soc-bar"><span id="uptimeBar"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>IT Support <i data-lucide="asterisk"></i> Cybersecurity <i data-lucide="asterisk"></i> AI Security <i data-lucide="asterisk"></i> Network Solutions <i data-lucide="asterisk"></i> Data Protection <i data-lucide="asterisk"></i> Cloud &amp; Backup <i data-lucide="asterisk"></i> Website Security <i data-lucide="asterisk"></i></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="about-photo duo"><img loading="lazy" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Server racks and network cabling"></div>
+      <div class="about-photo2 duo"><img loading="lazy" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=640&q=80" alt="Fiber optic technology close-up"></div>
+      <div class="exp-badge"><b>8+</b><span>Years of<br>Excellence</span></div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">About MARGE IT SUPPORT</span>
+      <h2 class="h2">Your local partner for a <span class="serif" style="color:var(--pink)">safer, smarter</span> digital business.</h2>
+      <p>Based in the heart of Ilesa, Osun State, MARGE IT SUPPORT combines big-city expertise with genuine local care. We keep shops, schools, clinics, law firms and growing companies online, secure and ahead of the curve.</p>
+      <p>From fixing a laptop before closing time to shielding your AI systems from modern threats, we treat every client's technology like our own.</p>
+      <ul class="about-list">
+        <li><i data-lucide="badge-check"></i>Certified &amp; experienced engineers</li>
+        <li><i data-lucide="badge-check"></i>On-site &amp; remote support</li>
+        <li><i data-lucide="badge-check"></i>Security-first in everything we do</li>
+        <li><i data-lucide="badge-check"></i>Honest, transparent pricing</li>
+      </ul>
+      <div class="counters">
+        <div class="counter"><b><span class="count" data-target="120">0</span><em>+</em></b><span>Businesses supported</span></div>
+        <div class="counter"><b><span class="count" data-target="8">0</span><em>+</em></b><span>Years experience</span></div>
+        <div class="counter"><b><span class="count" data-target="99.9" data-dec="1">0</span><em>%</em></b><span>Uptime delivered</span></div>
+        <div class="counter"><b><span class="count" data-target="45">0</span><em>min</em></b><span>Avg. response</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2 class="h2">One partner for every technology your business depends on.</h2>
+      <p>Eight core services, delivered with the same security-first mindset — whether it's a quick repair or a full infrastructure rollout.</p>
+    </div>
+
+    <div class="bento">
+      <div class="bcard b1 reveal">
+        <span class="num">01</span>
+        <div class="icon-tile"><i data-lucide="brain-circuit"></i></div>
+        <h3>AI Security</h3>
+        <p>Our flagship service. As businesses adopt AI chatbots and intelligent tools, we secure the models, the prompts and the data behind them against injection attacks, data leakage and misuse.</p>
+        <div class="b1-chips"><span>Prompt Injection Shield</span><span>2FA Access</span><span>Live AI Monitoring</span><span>Threat Detection</span></div>
+        <a href="#ai-security" class="more" style="margin-top:22px">See how it works <i data-lucide="arrow-up-right"></i></a>
+        <div class="b1-img"><div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80" alt="AI security monitoring code"></div></div>
+      </div>
+
+      <div class="bcard b2 reveal" style="--d:.06s">
+        <span class="num">02</span>
+        <div class="icon-tile"><i data-lucide="life-buoy"></i></div>
+        <h3>IT Support</h3>
+        <p>Fast, friendly helpdesk and on-site support that keeps your team working. We resolve issues before they cost you a business day.</p>
+        <a href="#contact" class="more">Learn more <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="bcard b3 reveal" style="--d:.12s">
+        <span class="num">03</span>
+        <div class="icon-tile"><i data-lucide="shield-check"></i></div>
+        <h3>Cybersecurity</h3>
+        <p>Firewalls, endpoint protection, vulnerability audits and staff awareness training — layered defence built for Nigerian businesses.</p>
+        <div class="b3-metric">24/7 threat monitoring</div>
+        <a href="#contact" class="more">Learn more <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="bcard b4 reveal" style="--d:.06s">
+        <span class="num">04</span>
+        <div class="icon-tile"><i data-lucide="network"></i></div>
+        <h3>Network Solutions</h3>
+        <p>Structured cabling, Wi-Fi coverage, routers and switches — fast, stable networks designed around how your team actually works.</p>
+        <a href="#contact" class="more">Learn more <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="bcard b5 reveal" style="--d:.12s">
+        <span class="num">05</span>
+        <div class="icon-tile"><i data-lucide="database"></i></div>
+        <h3>Data Protection</h3>
+        <p>Encryption, access control and compliance-ready policies that keep customer and business data out of the wrong hands.</p>
+        <a href="#contact" class="more">Learn more <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="bcard b6 reveal">
+        <span class="num">06</span>
+        <div class="icon-tile"><i data-lucide="cloud"></i></div>
+        <div class="b6-body">
+          <h3>Cloud &amp; Backup</h3>
+          <p>Move your files, email and systems to the cloud with a bulletproof 3-2-1 backup strategy — so a crash or ransomware attack never means starting over.</p>
+          <ul class="b6-checks">
+            <li><i data-lucide="check"></i>Automated daily backups</li>
+            <li><i data-lucide="check"></i>Cloud migration</li>
+            <li><i data-lucide="check"></i>Disaster recovery plans</li>
+            <li><i data-lucide="check"></i>Microsoft 365 &amp; Google Workspace</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bcard b7 reveal" style="--d:.06s">
+        <span class="num">07</span>
+        <div class="icon-tile"><i data-lucide="wrench"></i></div>
+        <h3>Computer Maintenance</h3>
+        <p>Routine servicing, upgrades, repairs and health checks that extend the life of your hardware and prevent costly surprises.</p>
+        <a href="#contact" class="more">Learn more <i data-lucide="arrow-up-right"></i></a>
+      </div>
+
+      <div class="bcard b8 reveal">
+        <span class="num">08</span>
+        <div class="icon-tile"><i data-lucide="globe"></i></div>
+        <div class="b8-body">
+          <h3>Website Security</h3>
+          <p>SSL setup, malware scanning, hardening and monitoring for your business website — because your site is often the first thing attackers touch.</p>
+        </div>
+        <a href="#contact" class="btn btn--primary">Request a Free Scan <i data-lucide="arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI SECURITY ============ -->
+<section class="ai-sec" id="ai-security">
+  <div class="dots-bg"></div>
+  <div class="container">
+    <div class="ai-grid">
+      <div class="ai-left reveal">
+        <span class="eyebrow">AI Security</span>
+        <h2 class="h2">Protect Your <span class="accent">AI</span>.<br>Protect Your Business.</h2>
+        <p>AI tools are only as safe as the security around them. MARGE builds a protective layer between your users and your AI systems — verifying every request, filtering every prompt and watching every response.</p>
+        <div class="ai-stats">
+          <span><i data-lucide="layers"></i>7 Security Layers</span>
+          <span><i data-lucide="zap"></i>Sub-second Filtering</span>
+          <span><i data-lucide="eye"></i>Always-on Monitoring</span>
+        </div>
+        <a href="#contact" class="btn btn--primary">Secure My AI Systems <i data-lucide="arrow-right"></i></a>
+      </div>
+
+      <div class="ai-feats reveal" style="--d:.1s">
+        <div class="ai-feat"><div class="fi"><i data-lucide="lock"></i></div><div><h4>Secure Login</h4><p>Hardened authentication gates every AI tool, so only real, verified users ever reach your systems.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="smartphone"></i></div><div><h4>2FA Authentication</h4><p>A second proof of identity on every login — stolen passwords alone are never enough.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="user-check"></i></div><div><h4>Role-Based Access</h4><p>Staff see only what their role allows. Sensitive AI functions stay limited to the people who truly need them.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="shield-alert"></i></div><div><h4>Prompt Injection Protection</h4><p>Malicious prompts crafted to manipulate your AI are detected and neutralised before the model ever responds.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="database"></i></div><div><h4>Data Protection</h4><p>Customer records and business data are encrypted and isolated, so your AI can help without exposing secrets.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="activity"></i></div><div><h4>AI Monitoring</h4><p>Continuous logs and live dashboards show exactly how your AI is being used — and by whom.</p></div></div>
+        <div class="ai-feat"><div class="fi"><i data-lucide="radar"></i></div><div><h4>Threat Detection</h4><p>Anomalies, abuse patterns and attack attempts trigger instant alerts and automatic blocks.</p></div></div>
+      </div>
+    </div>
+
+    <div class="flow-head reveal">
+      <div>
+        <span class="eyebrow">The Secure Pipeline</span>
+        <h3>Every AI request passes through six gates.</h3>
+      </div>
+      <span class="flow-status" id="flowStatus">Waiting for user request…</span>
+    </div>
+
+    <div class="flow reveal" id="flow">
+      <div class="flow-track"><div class="flow-progress" id="flowProgress"></div></div>
+      <div class="flow-packet" id="flowPacket"></div>
+      <ol class="flow-steps" id="flowSteps">
+        <li class="flow-step"><div class="flow-node"><i data-lucide="user"></i></div><h4>User</h4><p>Sends a request</p></li>
+        <li class="flow-step"><div class="flow-node"><i data-lucide="log-in"></i></div><h4>Login</h4><p>Identity verified</p></li>
+        <li class="flow-step"><div class="flow-node"><i data-lucide="smartphone"></i></div><h4>2FA</h4><p>Second factor checked</p></li>
+        <li class="flow-step"><div class="flow-node"><i data-lucide="user-check"></i></div><h4>Permission Check</h4><p>Role &amp; access validated</p></li>
+        <li class="flow-step"><div class="flow-node"><i data-lucide="cpu"></i></div><h4>AI System</h4><p>Prompt scanned &amp; processed</p></li>
+        <li class="flow-step"><div class="flow-node"><i data-lucide="shield-check"></i></div><h4>Safe Response</h4><p>Clean answer delivered</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="why" id="why">
+  <div class="container why-grid">
+    <div class="why-left reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 class="h2">Technology partner, not just a repair shop.</h2>
+      <p>Anyone can fix a computer. We build lasting relationships around prevention, security and honest advice — so problems become rare, and when they happen, they're already handled.</p>
+      <div class="duo"><img loading="lazy" src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=840&q=80" alt="Security engineer monitoring systems"></div>
+    </div>
+    <div class="why-list reveal" style="--d:.1s">
+      <div class="why-item">
+        <span class="wn">01</span>
+        <div class="wi"><i data-lucide="map-pin"></i></div>
+        <div><h4>Truly local, truly fast</h4><p>We're based right here in Ilesa. On-site within the hour for priority clients, and we know the realities of doing business in Osun State.</p></div>
+      </div>
+      <div class="why-item">
+        <span class="wn">02</span>
+        <div class="wi"><i data-lucide="shield-check"></i></div>
+        <div><h4>Security-first engineers</h4><p>Every setup, repair and rollout is done with security baked in from day one — not bolted on after something goes wrong.</p></div>
+      </div>
+      <div class="why-item">
+        <span class="wn">03</span>
+        <div class="wi"><i data-lucide="layers"></i></div>
+        <div><h4>One partner for everything IT</h4><p>Support, networks, security, cloud, AI — no juggling multiple vendors. One call, one team, full accountability.</p></div>
+      </div>
+      <div class="why-item">
+        <span class="wn">04</span>
+        <div class="wi"><i data-lucide="badge-check"></i></div>
+        <div><h4>Honest, transparent pricing</h4><p>Clear quotes before we start, no hidden charges, and plain-language explanations. You'll always know what you're paying for.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA STRIP ============ -->
+<div class="cta-strip">
+  <div class="container cta-inner reveal">
+    <div>
+      <h3>Need urgent IT support right now?</h3>
+      <p>Call our hotline — a real engineer picks up, not a machine.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:+2348106356492" class="btn btn--white"><i data-lucide="phone"></i> 0810 635 6492</a>
+      <a href="https://wa.me/2348106356492?text=Hello%20MARGE%20IT%20SUPPORT%2C%20I%20need%20urgent%20IT%20help." target="_blank" rel="noopener" class="btn btn--outline-w">Chat on WhatsApp <i data-lucide="arrow-up-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">How It Works</span>
+      <h2 class="h2">From first call to full protection in four steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-n">01</div><h4>Free Consultation</h4><p>Tell us about your business, your setup and your worries — by phone, WhatsApp or a visit to our Ilesa office.</p></div>
+      <div class="step reveal" style="--d:.08s"><div class="step-n">02</div><h4>Assessment &amp; Proposal</h4><p>We audit your systems, identify risks and gaps, then present a clear plan with transparent pricing.</p></div>
+      <div class="step reveal" style="--d:.16s"><div class="step-n">03</div><h4>Implementation</h4><p>Our engineers deploy, secure and test everything — often with zero downtime for your team.</p></div>
+      <div class="step reveal" style="--d:.24s"><div class="step-n">04</div><h4>Monitoring &amp; Support</h4><p>We watch, maintain and improve your systems continuously, with fast help whenever you need it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Our Portfolio</span>
+      <h2 class="h2">Recent work across Osun State and beyond.</h2>
+      <p>A selection of projects we've delivered for schools, businesses and institutions.</p>
+    </div>
+    <div class="pf-grid">
+      <article class="pf pf--lg reveal">
+        <span class="pf-tag">Network Solutions</span>
+        <div class="pf-media"><img loading="lazy" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=980&q=80" alt="Network engineer installing infrastructure"></div>
+        <div class="pf-body"><h3>Campus-wide Network Rollout <i data-lucide="arrow-up-right"></i></h3><p>Full structured cabling, Wi-Fi and computer-lab setup for a private academy in Ilesa — 40 classrooms connected.</p></div>
+      </article>
+      <article class="pf pf--sm reveal" style="--d:.08s">
+        <span class="pf-tag">Cybersecurity</span>
+        <div class="pf-media"><img loading="lazy" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=820&q=80" alt="Cybersecurity protection audit"></div>
+        <div class="pf-body"><h3>Clinic Security Audit <i data-lucide="arrow-up-right"></i></h3><p>Endpoint hardening and patient-data protection for a busy medical centre.</p></div>
+      </article>
+      <article class="pf pf--sm reveal">
+        <span class="pf-tag">Cloud &amp; Backup</span>
+        <div class="pf-media"><img loading="lazy" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=820&q=80" alt="Global cloud network"></div>
+        <div class="pf-body"><h3>Law Firm Cloud Migration <i data-lucide="arrow-up-right"></i></h3><p>Documents, email and case files moved to a secure cloud with automated 3-2-1 backups.</p></div>
+      </article>
+      <article class="pf pf--lg reveal" style="--d:.08s">
+        <span class="pf-tag">AI Security</span>
+        <div class="pf-media"><img loading="lazy" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=980&q=80" alt="Secure AI login authentication"></div>
+        <div class="pf-body"><h3>AI Chatbot Protection for Fintech <i data-lucide="arrow-up-right"></i></h3><p>Deployed our full AI pipeline — 2FA, role-based access and prompt-injection shielding — for a customer-service chatbot handling thousands of requests weekly.</p></div>
+      </article>
+      <article class="pf pf--wide reveal">
+        <div class="pf-media"><img loading="lazy" src="https://images.unsplash.com/photo-1520869562399-e772f042f422?auto=format&fit=crop&w=900&q=80" alt="Data center server racks"></div>
+        <div class="pf-body">
+          <span class="pf-tag" style="position:static;display:inline-block;margin-bottom:16px">Infrastructure</span>
+          <h3>Hotel IT &amp; Security Infrastructure <i data-lucide="arrow-up-right"></i></h3>
+          <p>Guest Wi-Fi across three floors, CCTV integration, front-desk systems and a managed backup room — delivered and supported end-to-end by MARGE.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testi" id="testimonials">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center">Testimonials</span>
+      <h2 class="h2" style="color:#fff">Trusted by businesses like yours.</h2>
+    </div>
+    <div class="t-wrap reveal">
+      <div class="t-viewport">
+        <div class="t-track" id="tTrack">
+          <div class="t-slide">
+            <div class="t-quote-ic"><i data-lucide="quote"></i></div>
+            <div class="t-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <blockquote>"MARGE set up our POS network, Wi-Fi and daily backups. In two years we've never lost a day of sales to downtime. They answer the phone — every single time."</blockquote>
+            <div class="t-person"><img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Adaeze Okonkwo"><div style="text-align:left"><b>Adaeze Okonkwo</b><span>Owner, Bloom Beauty Studio · Ilesa</span></div></div>
+          </div>
+          <div class="t-slide">
+            <div class="t-quote-ic"><i data-lucide="quote"></i></div>
+            <div class="t-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <blockquote>"They built our computer lab from scratch and trained our staff on basic security. Our students now enjoy one of the best ICT facilities in Osun State."</blockquote>
+            <div class="t-person"><img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Kunle Adeyemi"><div style="text-align:left"><b>Kunle Adeyemi</b><span>Proprietor, Rising Stars Academy</span></div></div>
+          </div>
+          <div class="t-slide">
+            <div class="t-quote-ic"><i data-lucide="quote"></i></div>
+            <div class="t-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <blockquote>"After their security audit, we discovered how exposed we really were. Within two weeks everything was locked down — and our insurance premium even dropped."</blockquote>
+            <div class="t-person"><img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&h=120&q=80" alt="Tunde Bakare"><div style="text-align:left"><b>Tunde Bakare</b><span>Operations Manager, Osun Agro Exports</span></div></div>
+          </div>
+          <div class="t-slide">
+            <div class="t-quote-ic"><i data-lucide="quote"></i></div>
+            <div class="t-stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+            <blockquote>"Their AI security gave us the confidence to launch a client chatbot. Every request is verified, logged and filtered — our clients' data has never been safer."</blockquote>
+            <div class="t-person"><img loading="lazy" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&h=120&q=80" alt="Folake Ajayi"><div style="text-align:left"><b>Folake Ajayi</b><span>Partner, Ajayi &amp; Co Legal</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="t-ctrl">
+        <button class="t-btn" id="tPrev" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+        <div class="t-dots" id="tDots"></div>
+        <button class="t-btn" id="tNext" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container faq-grid">
+    <div class="faq-left reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="h2">Questions, answered honestly.</h2>
+      <p>The things clients ask us most before getting started. Anything else — just reach out.</p>
+      <div class="faq-card">
+        <i data-lucide="message-circle"></i>
+        <h4>Still have questions?</h4>
+        <p>Message us on WhatsApp and get a real answer from a real engineer — usually within minutes.</p>
+        <a href="https://wa.me/2348106356492?text=Hello%20MARGE%20IT%20SUPPORT%2C%20I%20have%20a%20question." target="_blank" rel="noopener" class="btn btn--dark" style="padding:12px 22px;font-size:14px">Chat With Us <i data-lucide="arrow-up-right"></i></a>
+      </div>
+    </div>
+    <div class="faq-list reveal" style="--d:.1s">
+      <div class="faq-item">
+        <button class="faq-q">Do you only serve businesses in Ilesa?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>Our home base is Ilesa, Osun State, and we regularly work in Osogbo, Ile-Ife and surrounding towns. For software, cloud, monitoring and AI security work, we support clients anywhere in Nigeria remotely.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you offer on-site as well as remote support?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>Both. Many issues are fixed within minutes through secure remote sessions, while hardware, cabling and infrastructure work is done on-site. Support plans include a defined mix of both.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How fast is your response time?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>For retained clients, we respond within one hour and our average response is currently around 45 minutes. Same-day on-site visits are standard within Ilesa for urgent issues.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What exactly is AI Security — and does my business need it?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>If you use or plan to use AI tools — chatbots, automated assistants, AI analytics — attackers can manipulate them through crafted prompts, trick them into leaking data, or abuse weak access controls. AI Security adds login hardening, 2FA, role-based permissions, prompt-injection filtering and continuous monitoring around those tools. If AI touches your customers or your data, you need it.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much do your services cost?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>Every business is different, so we start with a free consultation and give you a clear, itemised quote before any work begins. No hidden charges, no surprises — and support plans start at small-business-friendly rates.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can you recover lost data or set up backups?<span class="fx"><i data-lucide="plus"></i></span></button>
+        <div class="faq-a"><div><p>Yes — we handle data recovery cases and, more importantly, set up automated 3-2-1 backup systems (three copies, two media, one offsite) so you never have to panic about a crash, theft or ransomware again.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Contact Us</span>
+        <h2 class="h2">Let's secure your business.</h2>
+        <p>Book a free consultation, request a quote, or just ask a question — we reply within one business day.</p>
+        <div class="c-item">
+          <div class="ci"><i data-lucide="map-pin"></i></div>
+          <div><b>Visit Our Office</b><span>GEO 26, Aralopon Teacher Quarters, Ilesa, Osun State, Nigeria</span></div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i data-lucide="phone"></i></div>
+          <div><b>Call Us</b><a href="tel:+2348106356492">0810 635 6492</a></div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i data-lucide="message-circle"></i></div>
+          <div><b>WhatsApp</b><a href="https://wa.me/2348106356492" target="_blank" rel="noopener">Message us instantly</a></div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i data-lucide="mail"></i></div>
+          <div><b>Email</b><a href="mailto:support@margeitsupport.ng">support@margeitsupport.ng</a></div>
+        </div>
+        <div class="c-item" style="border-bottom:none">
+          <div class="ci"><i data-lucide="clock"></i></div>
+          <div><b>Business Hours</b><span>Mon – Sat · 8:00am – 6:00pm · 24/7 emergency line for retained clients</span></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal" style="--d:.1s">
+        <h3>Send us a message</h3>
+        <p>Fill the form and our team will get back to you within 24 hours.</p>
+        <form id="contactForm" novalidate>
+          <div class="f-row">
+            <div class="f-group"><label for="fName">Full Name</label><input type="text" id="fName" placeholder="e.g. Chidi Okafor"><span class="f-err">Please enter your name</span></div>
+            <div class="f-group"><label for="fPhone">Phone / WhatsApp</label><input type="tel" id="fPhone" placeholder="e.g. 0803 000 0000"><span class="f-err">Please enter a valid phone number</span></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label for="fEmail">Email Address</label><input type="email" id="fEmail" placeholder="you@company.com"><span class="f-err">Please enter a valid email</span></div>
+            <div class="f-group"><label for="fService">Service Needed</label>
+              <select id="fService">
+                <option value="">Select a service…</option>
+                <option>IT Support</option><option>Network Solutions</option><option>Cybersecurity</option>
+                <option>AI Security</option><option>Data Protection</option><option>Computer Maintenance</option>
+                <option>Cloud &amp; Backup</option><option>Website Security</option><option>Other / Not sure</option>
+              </select><span class="f-err">Please choose a service</span>
+            </div>
+          </div>
+          <div class="f-group"><label for="fMsg">Your Message</label><textarea id="fMsg" placeholder="Tell us briefly what you need help with…"></textarea><span class="f-err">Please tell us how we can help</span></div>
+          <button type="submit" class="btn btn--primary">Send Message <i data-lucide="send"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-wrap reveal">
+      <iframe title="MARGE IT SUPPORT location — Ilesa, Osun State" src="https://www.google.com/maps?q=Aralopon+Teacher+Quarters,+Ilesa,+Osun+State,+Nigeria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="map-chip">
+        <b><i data-lucide="map-pin"></i>MARGE IT SUPPORT</b>
+        <span>GEO 26, Aralopon Teacher Quarters,<br>Ilesa, Osun State, Nigeria</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-main">
+      <div class="foot-brand">
+        <a href="#home" class="brand">
+          <svg class="brand-mark" viewBox="0 0 44 44" fill="none" style="width:40px;height:40px">
+            <rect width="44" height="44" rx="12" fill="#F0417F"/>
+            <path d="M22 9L33 13.5V22c0 7-4.4 11.4-11 13.8C15.4 33.4 11 29 11 22v-8.5L22 9z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+            <circle cx="22" cy="21.5" r="3.4" fill="#fff"/>
+            <path d="M22 24.9V29" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name">MARGE<small>IT SUPPORT</small></span>
+        </a>
+        <p>Smart IT support, cybersecurity and AI security for businesses in Ilesa, Osun State and across Nigeria.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="X / Twitter"><i data-lucide="twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">IT Support</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#ai-security">AI Security</a></li>
+          <li><a href="#services">Network Solutions</a></li>
+          <li><a href="#services">Cloud &amp; Backup</a></li>
+          <li><a href="#services">Website Security</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Get In Touch</h4>
+        <ul class="foot-contact">
+          <li><i data-lucide="map-pin"></i>GEO 26, Aralopon Teacher Quarters, Ilesa, Osun State, Nigeria</li>
+          <li><i data-lucide="phone"></i><a href="tel:+2348106356492">0810 635 6492</a></li>
+          <li><i data-lucide="mail"></i><a href="mailto:support@margeitsupport.ng">support@margeitsupport.ng</a></li>
+          <li><i data-lucide="clock"></i>Mon – Sat · 8:00am – 6:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> MARGE IT SUPPORT. All rights reserved.</span>
+      <div class="fb-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <button id="toTop">Back to top <i data-lucide="arrow-up"></i></button>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<div class="wa-float">
+  <span class="wa-label">Chat with us on WhatsApp</span>
+  <a class="wa-btn" href="https://wa.me/2348106356492?text=Hello%20MARGE%20IT%20SUPPORT%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="WhatsApp">
+    <span class="wa-dot"></span>
+    <svg viewBox="0 0 32 32"><path d="M16.04 3C9.03 3 3.34 8.69 3.34 15.7c0 2.24.59 4.42 1.7 6.35L3.2 29l7.12-1.87a12.66 12.66 0 005.72 1.37h.01c7 0 12.7-5.7 12.7-12.7C28.75 8.69 23.05 3 16.04 3zm0 23.34h-.01c-1.86 0-3.69-.5-5.28-1.45l-.38-.22-3.92 1.03 1.05-3.82-.25-.4a10.54 10.54 0 01-1.62-5.62c0-5.83 4.75-10.58 10.6-10.58 2.83 0 5.49 1.1 7.48 3.1a10.53 10.53 0 013.1 7.49c0 5.84-4.75 10.47-10.57 10.47zm5.8-7.86c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.72.16-.21.32-.82 1.03-1 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.5-2.56-1.58a9.6 9.6 0 01-1.77-2.2c-.18-.32-.02-.5.14-.66.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.25 3.43 5.45 4.81.76.33 1.36.53 1.82.67.77.25 1.46.21 2.01.13.61-.09 1.88-.77 2.15-1.51.26-.75.26-1.38.18-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
+  </a>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script>
+'use strict';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Icons ---------- */
+lucide.createIcons();
+
+/* ---------- Marquee duplication ---------- */
+const mTrack = document.getElementById('marqueeTrack');
+mTrack.innerHTML += mTrack.innerHTML;
+
+/* ---------- Header & progress bar ---------- */
+const header = document.getElementById('header');
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 12);
+  const h = document.documentElement;
+  progress.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+
+/* ---------- Mobile menu ---------- */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+/* ---------- Reveal on scroll ---------- */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ---------- Active nav link ---------- */
+const navLinks = document.querySelectorAll('.nav-links a');
+const sectionObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+['home','about','services','ai-security','portfolio','faq','contact'].forEach(id => {
+  const el = document.getElementById(id); if (el) sectionObs.observe(el);
+});
+
+/* ---------- Animated counters ---------- */
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = parseFloat(el.dataset.target), dec = parseInt(el.dataset.dec || 0);
+    const dur = 1600, t0 = performance.now();
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec);
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.count').forEach(el => countObs.observe(el));
+
+/* ---------- Hero uptime bar ---------- */
+const uptimeBar = document.getElementById('uptimeBar');
+setTimeout(() => uptimeBar.style.width = '99.9%', 300);
+
+/* ---------- Hero network mesh canvas ---------- */
+const canvas = document.getElementById('mesh');
+if (canvas && !reduceMotion) {
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+  let W, H, nodes = [], running = true;
+  function resize() {
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+    const n = Math.min(70, Math.floor(W * H / 16000));
+    nodes = Array.from({ length: n }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      r: Math.random() * 1.6 + .6
+    }));
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  new IntersectionObserver(([e]) => running = e.isIntersecting).observe(hero);
+  (function draw() {
+    if (running) {
+      ctx.clearRect(0, 0, W, H);
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 130) {
+            ctx.strokeStyle = `rgba(240,65,127,${(1 - d / 130) * .3})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+        ctx.fillStyle = 'rgba(216,205,228,.5)';
+        ctx.beginPath(); ctx.arc(nodes[i].x, nodes[i].y, nodes[i].r, 0, 7); ctx.fill();
+      }
+    }
+    requestAnimationFrame(draw);
+  })();
+}
+
+/* ---------- AI security pipeline ---------- */
+const flow = document.getElementById('flow');
+const flowSteps = [...flow.querySelectorAll('.flow-step')];
+const flowProgress = document.getElementById('flowProgress');
+const flowPacket = document.getElementById('flowPacket');
+const flowStatus = document.getElementById('flowStatus');
+const isVertical = () => window.matchMedia('(max-width:860px)').matches;
+const messages = [
+  'Waiting for user request…',
+  'Verifying identity…',
+  'Second factor checked ✓',
+  'Role & permissions validated…',
+  'Scanning prompt for threats…',
+  'Safe response delivered ✓'
+];
+let flowIdx = 0, flowBusy = false;
+function flowTick() {
+  if (!flowBusy) return;
+  flowSteps.forEach((s, i) => s.classList.toggle('active', i <= flowIdx));
+  const pct = flowIdx / (flowSteps.length - 1) * 100;
+  flowStatus.textContent = messages[flowIdx];
+  const node = flowSteps[flowIdx].querySelector('.flow-node');
+  if (isVertical()) {
+    flowProgress.style.height = pct + '%'; flowProgress.style.width = '';
+    flowPacket.style.top = (node.offsetTop + node.offsetHeight / 2) + 'px';
+    flowPacket.style.left = '';
+  } else {
+    flowProgress.style.width = pct + '%';
+    flowPacket.style.left = (flow.offsetLeft + node.offsetLeft + node.offsetWidth / 2) + 'px';
+    flowPacket.style.top = '';
+  }
+  flowPacket.classList.add('on');
+  if (flowIdx < flowSteps.length - 1) {
+    flowIdx++; setTimeout(flowTick, 900);
+  } else {
+    setTimeout(() => {
+      flowSteps.forEach(s => s.classList.remove('active'));
+      flowProgress.style.width = '0'; flowProgress.style.height = '0';
+      flowPacket.classList.remove('on');
+      flowIdx = 0; flowStatus.textContent = messages[0];
+      setTimeout(flowTick, 700);
+    }, 2000);
+  }
+}
+new IntersectionObserver(([e]) => {
+  if (e.isIntersecting && !flowBusy) { flowBusy = true; flowTick(); }
+  else if (!e.isIntersecting) { flowBusy = false; }
+}, { threshold: 0.3 }).observe(flow);
+window.addEventListener('resize', () => { if (flowIdx > 0) { flowIdx = Math.max(0, flowIdx - 1); } });
+
+/* ---------- Testimonials carousel ---------- */
+const tTrack = document.getElementById('tTrack');
+const tSlides = tTrack.children.length;
+const tDots = document.getElementById('tDots');
+let tIdx = 0, tTimer;
+for (let i = 0; i < tSlides; i++) {
+  const d = document.createElement('span');
+  d.className = 't-dot' + (i === 0 ? ' on' : '');
+  d.addEventListener('click', () => goT(i));
+  tDots.appendChild(d);
+}
+function goT(i) {
+  tIdx = (i + tSlides) % tSlides;
+  tTrack.style.transform = `translateX(-${tIdx * 100}%)`;
+  [...tDots.children].forEach((d, k) => d.classList.toggle('on', k === tIdx));
+  restartT();
+}
+function restartT() { clearInterval(tTimer); if (!reduceMotion) tTimer = setInterval(() => goT(tIdx + 1), 6000); }
+document.getElementById('tPrev').addEventListener('click', () => goT(tIdx - 1));
+document.getElementById('tNext').addEventListener('click', () => goT(tIdx + 1));
+document.querySelector('.t-viewport').addEventListener('mouseenter', () => clearInterval(tTimer));
+document.querySelector('.t-viewport').addEventListener('mouseleave', restartT);
+restartT();
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+
+/* ---------- Toast system ---------- */
+function toast(msg, icon = 'check-circle') {
+  const box = document.getElementById('toasts');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<i data-lucide="${icon}"></i><span>${msg}</span>`;
+  box.appendChild(t);
+  lucide.createIcons({ nameAttr: 'data-lucide' });
+  setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 400); }, 4200);
+}
+
+/* ---------- Contact form ---------- */
+const form = document.getElementById('contactForm');
+function validate(id, test) {
+  const input = document.getElementById(id), group = input.closest('.f-group');
+  const ok = test(input.value.trim());
+  group.classList.toggle('err', !ok);
+  return ok;
+}
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const ok =
+    validate('fName', v => v.length > 1) &
+    validate('fPhone', v => /^[\d\s+()-]{7,}$/.test(v)) &
+    validate('fEmail', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) &
+    validate('fService', v => v !== '') &
+    validate('fMsg', v => v.length > 4);
+  if (!ok) { toast('Please check the highlighted fields.', 'alert-triangle'); return; }
+  const name = document.getElementById('fName').value.trim().split(' ')[0];
+  form.reset();
+  toast(`Thank you, ${name}! Your message has been sent — we'll reply within 24 hours.`, 'mail-check');
+});
+form.querySelectorAll('input, textarea, select').forEach(el =>
+  el.addEventListener('input', () => el.closest('.f-group').classList.remove('err')));
+
+/* ---------- Back to top & year ---------- */
+document.getElementById('toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
